@@ -43,7 +43,13 @@ public class StringCalculatorTest {
     void givenAStringShouldReturnSumOfAllNumbersInTheStringByHandleNewLinesBetweenNumbers(){
         assertEquals(6, sc.add("1\n2,3"));
         assertEquals(10, sc.add("1\n2,3\n4"));
-
     }
+
+    @Test
+    void given2LinesShouldReturnSumOfAllNumbersInTheStringUsingTheDelimiterInFirstLine(){
+        assertEquals(3, sc.add("//;\n1;2"));
+    }
+
+
 }
 
