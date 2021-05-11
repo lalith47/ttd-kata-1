@@ -7,6 +7,11 @@ import java.util.stream.Collectors;
 
 public class StringCalculator {
 
+    /**
+     *
+     */
+    private static final String DEFAULT_SEPERATOR = ",";
+
     private int add(String str,String seperator){
         str = str.replace("\n", seperator);
         String[] strArr = str.split(seperator);
@@ -26,13 +31,7 @@ public class StringCalculator {
         if(str.isEmpty()){
             return 0;
         }else {
-            str = str.replace("\n", ",");
-            String[] strArr = str.split(",");
-            List<String> strList = Arrays.asList(strArr);
-            Integer numList = strList.stream()
-                    .mapToInt(e -> Integer.valueOf(e))
-                    .sum();
-        return numList;
+            return add(str, DEFAULT_SEPERATOR);
         }
         
         
