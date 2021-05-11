@@ -1,15 +1,23 @@
 package assessment;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 public class StringCalculator {
 
     public int add(String str) {
+        
         if(str.isEmpty()){
             return 0;
-        }else if(str.length() == 1){
-            return Integer.valueOf(str);
-        }else{
+        }else {
             String[] strArr = str.split(",");
-           return Integer.valueOf(strArr[0]) + Integer.valueOf(strArr[1]);
+            List<String> strList = Arrays.asList(strArr);
+            Integer numList = strList.stream()
+                    .mapToInt(e -> Integer.valueOf(e))
+                    .sum();
+        return numList;
         }
         
     }
