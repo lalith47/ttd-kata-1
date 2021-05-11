@@ -19,14 +19,19 @@ public class StringCalculator {
         StringBuilder sb = new StringBuilder("[").append(seperator).append("]");
         String[] strArr = str.split(sb.toString());
         List<String> strList = Arrays.asList(strArr);
-        List<String> negativeNumbers = strList.stream().filter(e -> e.contains("-")).collect(Collectors.toList());
-        if(negativeNumbers.size() > 0){
-            throw new NegativeNumberNotAllowedException("negatives not allowed" + String.join(DEFAULT_SEPERATOR, negativeNumbers));
-        }
+        validate(strList);
         Integer numList = strList.stream()
                 .mapToInt(e -> Integer.valueOf(e))
                 .sum();
         return numList;
+    }
+
+
+    private void validate(List<String> strList) throws NegativeNumberNotAllowedException {
+        List<String> negativeNumbers = strList.stream().filter(e -> e.contains("-")).collect(Collectors.toList());
+        if(negativeNumbers.size() > 0){
+            throw new NegativeNumberNotAllowedException("negatives not allowed" + String.join(DEFAULT_SEPERATOR, negativeNumbers));
+        }
     } 
 
 
