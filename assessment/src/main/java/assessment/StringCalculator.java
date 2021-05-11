@@ -12,18 +12,23 @@ public class StringCalculator {
      */
     private static final String DEFAULT_SEPERATOR = ",";
 
-    private int add(String str,String seperator){
+    private int add(String str,String seperator) throws NegativeNumberNotAllowedException{
         str = str.replace("\n", seperator);
         StringBuilder sb = new StringBuilder("[").append(seperator).append("]");
         String[] strArr = str.split(sb.toString());
         List<String> strList = Arrays.asList(strArr);
+        long negativeCount = strList.stream().filter(e -> e.contains("-")).count();
+        if(negativeCount > 0){
+            throw new NegativeNumberNotAllowedException("negatives not allowed");
+        }
         Integer numList = strList.stream()
                 .mapToInt(e -> Integer.valueOf(e))
                 .sum();
         return numList;
     } 
 
-    public int add(String str) {
+
+    public int add(String str) throws NegativeNumberNotAllowedException {
         if(str.startsWith("//")){
             String seperator = str.substring(2, 3);
             str = str.substring(4);
