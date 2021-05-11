@@ -55,6 +55,7 @@ public class StringCalculatorTest {
     @Test
     void givenStringWithANegativeNumberThrowException(){
         assertThrows(NegativeNumberNotAllowedException.class, () -> sc.add("-1"));
+        assertThrows(NegativeNumberNotAllowedException.class, () -> sc.add("//$\n1$2$1\n-1"));
     }
 
 

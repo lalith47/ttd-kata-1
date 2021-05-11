@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import jdk.internal.joptsimple.internal.Strings;
+
 public class StringCalculator {
 
     /**
@@ -17,9 +19,9 @@ public class StringCalculator {
         StringBuilder sb = new StringBuilder("[").append(seperator).append("]");
         String[] strArr = str.split(sb.toString());
         List<String> strList = Arrays.asList(strArr);
-        long negativeCount = strList.stream().filter(e -> e.contains("-")).count();
-        if(negativeCount > 0){
-            throw new NegativeNumberNotAllowedException("negatives not allowed");
+        List<String> negativeNumbers = strList.stream().filter(e -> e.contains("-")).collect(Collectors.toList());
+        if(negativeNumbers.size() > 0){
+            throw new NegativeNumberNotAllowedException("negatives not allowed" + String.join(DEFAULT_SEPERATOR, negativeNumbers));
         }
         Integer numList = strList.stream()
                 .mapToInt(e -> Integer.valueOf(e))
