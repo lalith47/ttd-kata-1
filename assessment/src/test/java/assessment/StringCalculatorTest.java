@@ -48,6 +48,7 @@ public class StringCalculatorTest {
     @Test
     void given2LinesShouldReturnSumOfAllNumbersInTheStringUsingTheDelimiterInFirstLine(){
         assertEquals(3, sc.add("//;\n1;2"));
+        assertEquals(5, sc.add("//$\n1$2$1\n1"));
     }
 
 

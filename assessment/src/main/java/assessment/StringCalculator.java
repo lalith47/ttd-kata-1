@@ -14,7 +14,8 @@ public class StringCalculator {
 
     private int add(String str,String seperator){
         str = str.replace("\n", seperator);
-        String[] strArr = str.split(seperator);
+        StringBuilder sb = new StringBuilder("[").append(seperator).append("]");
+        String[] strArr = str.split(sb.toString());
         List<String> strList = Arrays.asList(strArr);
         Integer numList = strList.stream()
                 .mapToInt(e -> Integer.valueOf(e))
