@@ -1,0 +1,8 @@
+assessment/.settings/org.eclipse.jdt.apt.core.prefs
+assessment/.settings/org.eclipse.jdt.core.prefs
+assessment/.settings/org.eclipse.m2e.core.prefs
+assessment/.project
+.vscode/settings.json
+assessment/.classpath
+*.class
+./target
