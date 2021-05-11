@@ -27,5 +27,13 @@ public class StringCalculatorTest {
         assertEquals(1, sum);
 	}
 
+    @Test
+	void givenAStringWith2NumberShouldReturnTheSumOf2Number(){
+        String stringWith2Numbers = "1,2";
+		StringCalculator sc = new StringCalculator();
+        int sum = sc.add(stringWith2Numbers);
+        assertEquals(1, sum);
+	}
+
     
 }
