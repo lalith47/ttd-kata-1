@@ -28,11 +28,11 @@ public class StringCalculatorTest {
 	}
 
     @Test
-	void givenAStringWith2NumberShouldReturnTheSumOf2Number(){
+	void givenAStringWith2NumbersShouldReturnTheSumOf2Numbers(){
         String stringWith2Numbers = "1,2";
 		StringCalculator sc = new StringCalculator();
         int sum = sc.add(stringWith2Numbers);
-        assertEquals(1, sum);
+        assertEquals(3, sum);
 	}
 
     
