@@ -19,32 +19,24 @@ public class StringCalculatorTest {
 
     @Test
 	void givenAnEmptyStringShouldReturnZero(){
-        String emptyString = "";
-        int sum = sc.add(emptyString);
-        assertEquals(0, sum);
+        assertEquals(0, sc.add(""));
 
 	}
 
     @Test
 	void givenAStringWithOneNumberShouldReturnTheNumber(){
-        String aNumber = "1";
-        int sum = sc.add(aNumber);
-        assertEquals(1, sum);
+        assertEquals(1, sc.add("1"));
 	}
 
     @Test
 	void givenAStringWith2NumbersShouldReturnTheSumOf2Numbers(){
-        String stringWith2Numbers = "1,2";
-        int sum = sc.add(stringWith2Numbers);
-        assertEquals(3, sum);
+        assertEquals(3, sc.add("1,2"));
 	}
 
 
     @Test
     void givenAStringShouldReturnSumOfAllNumbersInTheString(){
-        String stringWithNumbers = "1,2,3";
-        int sum = sc.add(stringWithNumbers);
-        assertEquals(6, sum);
+        assertEquals(6, sc.add("1,2,3"));
     }
 
     @Test
