@@ -12,6 +12,7 @@ public class StringCalculator {
         if(str.isEmpty()){
             return 0;
         }else {
+            str = str.replace("\n", ",");
             String[] strArr = str.split(",");
             List<String> strList = Arrays.asList(strArr);
             Integer numList = strList.stream()

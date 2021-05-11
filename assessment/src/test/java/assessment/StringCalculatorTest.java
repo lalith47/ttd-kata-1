@@ -45,6 +45,16 @@ public class StringCalculatorTest {
         String stringWithNumbers = "1,2,3";
         int sum = sc.add(stringWithNumbers);
         assertEquals(6, sum);
+    }
+
+    @Test
+    void givenAStringShouldReturnSumOfAllNumbersInTheStringByHandleNewLinesBetweenNumbers(){
+        String stringWithNumbersAndNewline = "1\n2,3";
+        String stringWithNumbersAndMultipleNewlines = "1\n2,3\n4";
+        int sum = sc.add(stringWithNumbersAndNewline);
+        int sum2 = sc.add(stringWithNumbersAndMultipleNewlines);
+        assertEquals(6, sum);
+        assertEquals(10, sum2);
 
     }
 }
