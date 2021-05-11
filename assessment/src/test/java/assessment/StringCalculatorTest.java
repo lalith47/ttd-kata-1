@@ -35,5 +35,15 @@ public class StringCalculatorTest {
         assertEquals(3, sum);
 	}
 
+
+    @Test
+    void givenAStringShouldReturnSumOfAllNumbersInTheString(){
+        String stringWithNumbers = "1,2,3";
+        StringCalculator sc = new StringCalculator();
+        int sum = sc.add(stringWithNumbers);
+        assertEquals(6, sum);
+
+    }
+
     
 }
