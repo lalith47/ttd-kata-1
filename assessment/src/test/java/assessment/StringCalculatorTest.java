@@ -19,5 +19,13 @@ public class StringCalculatorTest {
 
 	}
 
+    @Test
+	void givenAStringWithOneNumberShouldReturnTheNumber(){
+        String aNumber = "1";
+		StringCalculator sc = new StringCalculator();
+        int sum = sc.add(aNumber);
+        assertEquals(1, sum);
+	}
+
     
 }
